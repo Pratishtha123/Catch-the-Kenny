@@ -2,4 +2,7 @@
     <string name="app_name">Catch the Kenny</string>
     <string name="time_10">Time:10</string>
     <string name="score_0">Score:0</string>
+    <string name="score">Score</string>
+    <string name="play_again">Play Again</string>
+    <string name="home">Home</string>
 </resources>

@@ -1,6 +1,7 @@
 package com.paru.catchthekenny
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
@@ -42,6 +43,9 @@ class MainActivity : AppCompatActivity() {
                 {
                     image.visibility=View.INVISIBLE
                 }
+                var intent= Intent(this@MainActivity,GameOver::class.java)
+                intent.putExtra("Score",scoreText.text)
+                startActivity(intent)
             }
 
             override fun onTick(millisUntilFinished: Long) {
