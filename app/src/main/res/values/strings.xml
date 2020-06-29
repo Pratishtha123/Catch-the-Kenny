@@ -4,5 +4,5 @@
     <string name="score_0">Score:0</string>
     <string name="score">Score</string>
     <string name="play_again">Play Again</string>
-    <string name="home">Home</string>
+    <string name="home">Go to Home</string>
 </resources>

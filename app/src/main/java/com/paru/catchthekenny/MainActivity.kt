@@ -84,6 +84,13 @@ class MainActivity : AppCompatActivity() {
     {
         setSupportActionBar(toolbar)
         supportActionBar?.title="Catch the Kenny"
+        supportActionBar?.setHomeButtonEnabled(true)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 
     override fun onBackPressed() {
@@ -98,6 +105,7 @@ class MainActivity : AppCompatActivity() {
         alterDialog.setNegativeButton("Go to Home") { text, listener ->
             super.onBackPressed()
         }
+        alterDialog.setCancelable(false)
         alterDialog.show()
     }
 }

@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.Toast
 
 class WelcomeActivity : AppCompatActivity() {
 
@@ -25,5 +26,9 @@ class WelcomeActivity : AppCompatActivity() {
         btnExit.setOnClickListener{
             finishAffinity()
         }
+    }
+
+    override fun onBackPressed() {
+        Toast.makeText(this@WelcomeActivity,"Press Exit to exit the game!",Toast.LENGTH_SHORT).show()
     }
 }
