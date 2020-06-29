@@ -15,6 +15,7 @@ import kotlin.collections.ArrayList
 
 class MainActivity : AppCompatActivity() {
 
+    lateinit var timer:CountDownTimer
     lateinit var toolbar: Toolbar
     var score:Int=0
     var imageArray=ArrayList<ImageView>()
@@ -34,7 +35,7 @@ class MainActivity : AppCompatActivity() {
 
         hideImages()
 
-        object : CountDownTimer(10000,1000)
+        timer= object : CountDownTimer(10000,1000)
         {
             override fun onFinish() {
                 timeText.text="Time's Up"
@@ -50,6 +51,7 @@ class MainActivity : AppCompatActivity() {
 
             override fun onTick(millisUntilFinished: Long) {
                 timeText.text="Time: "+ millisUntilFinished/1000
+
             }
         }.start()
     }
@@ -82,5 +84,20 @@ class MainActivity : AppCompatActivity() {
     {
         setSupportActionBar(toolbar)
         supportActionBar?.title="Catch the Kenny"
+    }
+
+    override fun onBackPressed() {
+        timer.cancel()
+        handler.removeCallbacks(runnable)
+
+        val alterDialog = androidx.appcompat.app.AlertDialog.Builder(this)
+        alterDialog.setMessage("What do you want?")
+        alterDialog.setPositiveButton("Exit") { text, listener ->
+            finishAffinity()
+        }
+        alterDialog.setNegativeButton("Go to Home") { text, listener ->
+            super.onBackPressed()
+        }
+        alterDialog.show()
     }
 }
