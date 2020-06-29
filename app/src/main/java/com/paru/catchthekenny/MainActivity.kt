@@ -7,12 +7,14 @@ import android.os.CountDownTimer
 import android.os.Handler
 import android.view.View
 import android.widget.ImageView
+import androidx.appcompat.widget.Toolbar
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 import kotlin.collections.ArrayList
 
 class MainActivity : AppCompatActivity() {
 
+    lateinit var toolbar: Toolbar
     var score:Int=0
     var imageArray=ArrayList<ImageView>()
     var handler:Handler=Handler()
@@ -21,6 +23,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        toolbar=findViewById(R.id.toolbar)
+        setUpToolbar()
+
 
         score=0
 
@@ -67,5 +72,11 @@ class MainActivity : AppCompatActivity() {
         score++
 
         scoreText.text= "Score: $score"
+    }
+
+    fun setUpToolbar()
+    {
+        setSupportActionBar(toolbar)
+        supportActionBar?.title="Catch the Kenny"
     }
 }

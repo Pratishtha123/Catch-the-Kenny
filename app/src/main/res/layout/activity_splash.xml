@@ -13,7 +13,18 @@
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:src="@drawable/kenny"
-        android:layout_centerInParent="true"/>
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="80dp"/>
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:id="@+id/splashAnimation"
+        app:lottie_loop="true"
+        app:lottie_fileName="data.json"
+        app:lottie_autoPlay="true"/>
 
 
 </RelativeLayout>

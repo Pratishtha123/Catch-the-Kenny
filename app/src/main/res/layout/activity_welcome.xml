@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    tools:context=".WelcomeActivity">
+
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:id="@+id/splashAnimation"
+        app:lottie_loop="true"
+        app:lottie_fileName="data_home.json"
+        app:lottie_autoPlay="true"/>
+
+    <Button
+        android:id="@+id/btnNew"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button_view"
+        android:layout_marginTop="400dp"
+        android:layout_marginHorizontal="20dp"
+        android:text="New Game"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
+        android:textSize="20sp"/>
+
+    <Button
+        android:id="@+id/btnExit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button_view"
+        android:layout_below="@id/btnNew"
+        android:layout_marginVertical="30dp"
+        android:layout_marginHorizontal="20dp"
+        android:text="Exit"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
+        android:textSize="20sp"/>
+
+
+
+
+</RelativeLayout>
