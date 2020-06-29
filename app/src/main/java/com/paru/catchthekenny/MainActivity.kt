@@ -16,6 +16,7 @@ import kotlin.collections.ArrayList
 class MainActivity : AppCompatActivity() {
 
     lateinit var timer:CountDownTimer
+    var timeLeft:Long=10000
     lateinit var toolbar: Toolbar
     var score:Int=0
     var imageArray=ArrayList<ImageView>()
@@ -34,8 +35,13 @@ class MainActivity : AppCompatActivity() {
         imageArray= arrayListOf(imageView1,imageView2,imageView3,imageView4,imageView5,imageView6,imageView7,imageView8,imageView9)
 
         hideImages()
+        timeTrack(timeLeft)
 
-        timer= object : CountDownTimer(10000,1000)
+    }
+
+    fun timeTrack(time:Long)
+    {
+        timer= object : CountDownTimer(time,1000)
         {
             override fun onFinish() {
                 timeText.text="Time's Up"
@@ -51,7 +57,7 @@ class MainActivity : AppCompatActivity() {
 
             override fun onTick(millisUntilFinished: Long) {
                 timeText.text="Time: "+ millisUntilFinished/1000
-
+                timeLeft =millisUntilFinished
             }
         }.start()
     }
@@ -99,11 +105,14 @@ class MainActivity : AppCompatActivity() {
 
         val alterDialog = androidx.appcompat.app.AlertDialog.Builder(this)
         alterDialog.setMessage("What do you want?")
-        alterDialog.setPositiveButton("Exit") { text, listener ->
-            finishAffinity()
+        alterDialog.setPositiveButton("New Game") { text, listener ->
+            timeLeft=10000
+            handler.postDelayed(runnable,500)
+            timeTrack(timeLeft)
         }
-        alterDialog.setNegativeButton("Go to Home") { text, listener ->
-            super.onBackPressed()
+        alterDialog.setNegativeButton("Continue") { text, listener ->
+            handler.postDelayed(runnable,500)
+            timeTrack(timeLeft)
         }
         alterDialog.setCancelable(false)
         alterDialog.show()
