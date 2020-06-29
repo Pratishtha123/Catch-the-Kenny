@@ -16,7 +16,7 @@ import kotlin.collections.ArrayList
 class MainActivity : AppCompatActivity() {
 
     lateinit var timer:CountDownTimer
-    var timeLeft:Long=10000
+    var timeLeft:Long=10110
     lateinit var toolbar: Toolbar
     var score:Int=0
     var imageArray=ArrayList<ImageView>()
@@ -106,7 +106,7 @@ class MainActivity : AppCompatActivity() {
         val alterDialog = androidx.appcompat.app.AlertDialog.Builder(this)
         alterDialog.setMessage("What do you want?")
         alterDialog.setPositiveButton("New Game") { text, listener ->
-            timeLeft=10000
+            timeLeft=10075
             handler.postDelayed(runnable,500)
             timeTrack(timeLeft)
         }
